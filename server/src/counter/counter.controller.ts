@@ -1,5 +1,4 @@
-import { Body, Controller, Post, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AppDto } from './dto';
 import { CounterService } from './counter.service';
 
@@ -8,8 +7,7 @@ export class CounterController {
   constructor(private readonly counterService: CounterService) {}
 
   @Post()
-  getData(@Body() { value }: AppDto, @Req() request: Request) {
-    console.log(request);
+  getData(@Body() { value }: AppDto) {
     return this.counterService.updateCounter(value);
   }
 }
