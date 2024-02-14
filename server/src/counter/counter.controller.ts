@@ -7,7 +7,7 @@ export class CounterController {
   constructor(private readonly counterService: CounterService) {}
 
   @Post()
-  getData(@Body() { value }: AppDto) {
-    return this.counterService.updateCounter(value);
+  async getData(@Body() { value }: AppDto) {
+    return await this.counterService.updateCounter(value);
   }
 }
