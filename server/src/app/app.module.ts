@@ -3,9 +3,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CounterModule } from '../counter/counter.module';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
-  imports: [CounterModule],
+  imports: [CounterModule, CacheModule.register()],
   controllers: [AppController],
   providers: [AppService],
 })
